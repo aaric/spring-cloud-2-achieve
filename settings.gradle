@@ -1,0 +1,4 @@
+include 'consul-server-order'
+include 'consul-server-user'
+
+rootProject.name = 'spring-cloud-2-achieve'

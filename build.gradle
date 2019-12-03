@@ -1,0 +1,97 @@
+apply plugin: "org.sonarqube"
+
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+    }
+    dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7.1"
+    }
+}
+
+allprojects {
+    group 'com.incarcloud'
+    version '0.0.1-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'checkstyle'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    ext {
+        lombokVersion = "1.18.8"
+        springBootVersion = "2.2.+"
+        springCloudVersion = "2.2.+"
+        swaggerBootstrapUiVersion = "1.9.6"
+        junit5Version = "5.5.2"
+    }
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://repository.incarcloud.com/content/groups/public' }
+    }
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+        testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+        testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+        testCompile "org.junit.jupiter:junit-jupiter-engine:${junit5Version}"
+        testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
+            exclude group: 'junit', module: 'junit'
+        }
+
+        /*runtime "org.springframework.boot:spring-boot-devtools:${springBootVersion}"*/
+    }
+
+    buildscript {
+        repositories {
+            maven { url 'https://plugins.gradle.org/m2/' }
+            maven { url 'https://maven.aliyun.com/repository/public' }
+        }
+
+        dependencies {
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+            classpath "org.junit.platform:junit-platform-gradle-plugin:1.2.0"
+        }
+    }
+
+    compileJava {
+        options.encoding = "UTF-8"
+        options.compilerArgs << "-Xlint:unchecked"
+    }
+
+    compileTestJava {
+        options.encoding = "UTF-8"
+        options.compilerArgs << "-Xlint:unchecked"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    task checkstyle(type: Checkstyle) {
+        configFile file("${rootDir}/config/checkstyle/checkstyle.xml")
+        ignoreFailures true
+        showViolations true
+        source = fileTree('src')
+        include '**/*.java'
+        exclude '**/test/**'
+        exclude '**/build/**'
+        classpath = files()
+    }
+
+    sonarqube {
+        properties {
+            property "sonar.sourceEncoding", "UTF-8"
+        }
+    }
+
+    defaultTasks "assemble"
+}
