@@ -23,7 +23,7 @@ spring:
       discovery:
         #register: false
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
-        tags: version=0.0.1-SNAPSHOT
+        tags: version=0.0.2-SNAPSHOT
         healthCheckInterval: 15s
         prefer-ip-address: true
 
@@ -40,5 +40,5 @@ logging:
       incarcloud: DEBUG
   file:
     path: ${LOGGING_FILE_PATH:./}
-    name: plat.log
+    name: order.log
     max-size: ${LOGGING_FILE_MAX_SIZE:20MB}
