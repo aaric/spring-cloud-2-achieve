@@ -23,7 +23,8 @@ spring:
       discovery:
         #register: false
         instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
-        tags: version=0.0.3-SNAPSHOT
+        tags: app=order, version=0.0.3-SNAPSHOT
+        healthCheckPath: ${management.context-path}/health
         healthCheckInterval: 15s
         prefer-ip-address: true
 
