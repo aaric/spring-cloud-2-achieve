@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserServiceImpl implements UserService {
 
     @Override
-    @GetMapping("/api/user/getUserOrder")
+    @GetMapping("/user/getUserOrder")
     public User getUser(@RequestParam("id") Integer id) {
+        log.info(String.format("User: id = %d", id));
         return new User(id, "user-" + id);
     }
 }

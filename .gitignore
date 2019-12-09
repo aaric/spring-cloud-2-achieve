@@ -3,6 +3,7 @@
 build/
 *.iml
 *.log
+*.log.*.gz
 application-*.yml
 .DS_Store
 out/

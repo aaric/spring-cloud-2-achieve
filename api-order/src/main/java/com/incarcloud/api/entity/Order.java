@@ -19,7 +19,7 @@ public class Order {
 
     private Integer id;
 
-    private String name;
+    private String orderName;
 
     private String belongs;
 }

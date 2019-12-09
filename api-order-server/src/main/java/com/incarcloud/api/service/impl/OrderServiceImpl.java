@@ -27,8 +27,9 @@ public class OrderServiceImpl implements OrderService {
     private UserServiceFeign userServiceFeign;
 
     @Override
-    @GetMapping("/api/order/getDetail")
+    @GetMapping("/order/getDetail")
     public List<Order> getDetail(@RequestParam("userId") Integer userId) {
+        log.info(String.format("Order: userId = %d", userId));
         User user = userServiceFeign.getUser(userId);
         return Arrays.asList(new Order(1, "macpro", user.getName()));
     }
