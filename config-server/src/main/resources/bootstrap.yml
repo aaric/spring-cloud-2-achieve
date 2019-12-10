@@ -1,6 +1,6 @@
 # Tomcat settings
 server:
-  port: ${TOMCAT_SERVER_PORT:9080}
+  port: ${TOMCAT_SERVER_PORT:9000}
 
 # Management settings
 management:
@@ -22,19 +22,26 @@ logging:
       incarcloud: DEBUG
   file:
     path: ${LOGGING_FILE_PATH:./}
-    name: user.log
+    name: config.log
     max-size: ${LOGGING_FILE_MAX_SIZE:20MB}
 
 # Spring settings
 spring:
   application:
-    name: api-user-server
+    name: config-server
   cloud:
     consul:
       host: 10.0.11.21
       port: 8500
       discovery:
         instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
-        tags: app=user, version=0.0.4-SNAPSHOT
+        tags: app=config, version=0.0.4-SNAPSHOT
         healthCheckInterval: 15s
         prefer-ip-address: true
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/aaric/spring-cloud-2-achieve.git
+          search-paths:
+            - gitconfig

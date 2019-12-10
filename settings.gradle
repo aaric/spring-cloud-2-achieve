@@ -1,3 +1,4 @@
+include 'config-server'
 include 'api-user'
 include 'api-user-server'
 include 'api-order'

@@ -8,4 +8,5 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-starter-consul-discovery:${springCloudVersion}"
     compile "org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudVersion}"
     compile "org.springframework.cloud:spring-cloud-starter-netflix-hystrix:${springCloudVersion}"
+    compile "org.springframework.cloud:spring-cloud-config-client:${springCloudVersion}"
 }
