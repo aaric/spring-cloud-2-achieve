@@ -13,6 +13,22 @@ management:
         #include: health,info
         include: "*"
 
+# Logging settings
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        security: INFO
+        web: ERROR
+      hibernate: INFO
+    com:
+      incarcloud: DEBUG
+  file:
+    path: ${LOGGING_FILE_PATH:./}
+    name: order.log
+    max-size: ${LOGGING_FILE_MAX_SIZE:20MB}
+
 # Spring settings
 spring:
   application:
@@ -29,18 +45,20 @@ spring:
         healthCheckInterval: 15s
         prefer-ip-address: true
 
-# Logging settings
-logging:
-  level:
-    root: WARN
-    org:
-      springframework:
-        security: INFO
-        web: ERROR
-      hibernate: INFO
-    com:
-      incarcloud: DEBUG
-  file:
-    path: ${LOGGING_FILE_PATH:./}
-    name: order.log
-    max-size: ${LOGGING_FILE_MAX_SIZE:20MB}
+# Feign settings
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+# Hystrix settings
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false

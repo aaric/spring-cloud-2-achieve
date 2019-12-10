@@ -16,4 +16,7 @@ public interface OrderService {
 
     @GetMapping("/order/getDetail")
     List<Order> getDetail(@RequestParam("userId") Integer userId);
+
+    @GetMapping("/user/getUserThreadName")
+    String getUserThreadName();
 }

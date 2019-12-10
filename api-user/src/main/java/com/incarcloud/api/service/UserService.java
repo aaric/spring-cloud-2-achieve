@@ -14,4 +14,7 @@ public interface UserService {
 
     @GetMapping("/user/getUserOrder")
     User getUser(@RequestParam("id") Integer id);
+
+    @GetMapping("/user/getSleepT15")
+    String getSleepT15();
 }

@@ -1,5 +1,6 @@
 package com.incarcloud.api.feign;
 
+import com.incarcloud.api.fallback.UserServiceFallback;
 import com.incarcloud.api.service.UserService;
 import org.springframework.cloud.openfeign.FeignClient;
 
@@ -9,6 +10,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @author Aaric, created on 2019-12-04T11:14.
  * @version 0.0.2-SNAPSHOT
  */
-@FeignClient("api-user-server")
+@FeignClient(value = "api-user-server", fallback = UserServiceFallback.class)
 public interface UserServiceFeign extends UserService {
 }
