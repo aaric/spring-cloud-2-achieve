@@ -1,9 +1,6 @@
 # Tomcat settings
 server:
   port: ${TOMCAT_SERVER_PORT:9090}
-  tomcat:
-    ## 测试雪崩效应
-    max-threads: 10
 
 # Management settings
 management:
@@ -38,10 +35,8 @@ spring:
       host: 10.0.11.21
       port: 8500
       discovery:
-        #register: false
         instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
-        tags: app=order, version=0.0.3-SNAPSHOT
-        #healthCheckPath: ${management.context-path}/health
+        tags: app=order, version=0.0.4-SNAPSHOT
         healthCheckInterval: 15s
         prefer-ip-address: true
 
@@ -54,11 +49,3 @@ feign:
       enabled: true
     response:
       enabled: true
-
-# Hystrix settings
-hystrix:
-  command:
-    default:
-      execution:
-        timeout:
-          enabled: false
