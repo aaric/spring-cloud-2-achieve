@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 public interface UserService {
 
-    @GetMapping("/api/user/getUserOrder")
+    @GetMapping("/user/getUserOrder")
     User getUser(@RequestParam("id") Integer id);
+
+    @GetMapping("/user/getSleepT15")
+    String getSleepT15();
 }

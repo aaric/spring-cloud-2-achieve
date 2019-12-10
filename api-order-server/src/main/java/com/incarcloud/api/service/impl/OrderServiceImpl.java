@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * OrderServiceImpl
@@ -23,13 +24,32 @@ import java.util.List;
 @RestController
 public class OrderServiceImpl implements OrderService {
 
+    /**
+     * 计数器
+     */
+    private static AtomicInteger counter = new AtomicInteger(0);
+
     @Autowired
     private UserServiceFeign userServiceFeign;
 
     @Override
-    @GetMapping("/api/order/getDetail")
+    @GetMapping("/order/getDetail")
     public List<Order> getDetail(@RequestParam("userId") Integer userId) {
+        log.info("currentThreadName: {}", Thread.currentThread().getName());
+        log.info("Order-{}: userId = {}", counter.incrementAndGet(), userId);
         User user = userServiceFeign.getUser(userId);
         return Arrays.asList(new Order(1, "macpro", user.getName()));
     }
+
+    @Override
+    @GetMapping("/user/getUserThreadName")
+//    @HystrixCommand(fallbackMethod = "getUserThreadNameFallback")
+    public String getUserThreadName() {
+        log.info("currentThreadName: {}", Thread.currentThread().getName());
+        return userServiceFeign.getSleepT15();
+    }
+
+//    private String getUserThreadNameFallback() {
+//        return "Waiting UserServiceFeign$getSleepT15 ...";
+//    }
 }

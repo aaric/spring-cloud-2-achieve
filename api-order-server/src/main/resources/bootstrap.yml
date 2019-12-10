@@ -1,0 +1,64 @@
+# Tomcat settings
+server:
+  port: ${TOMCAT_SERVER_PORT:9090}
+  tomcat:
+    ## 测试雪崩效应
+    max-threads: 10
+
+# Management settings
+management:
+  endpoints:
+    web:
+      exposure:
+        #include: health,info
+        include: "*"
+
+# Logging settings
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        security: INFO
+        web: ERROR
+      hibernate: INFO
+    com:
+      incarcloud: DEBUG
+  file:
+    path: ${LOGGING_FILE_PATH:./}
+    name: order.log
+    max-size: ${LOGGING_FILE_MAX_SIZE:20MB}
+
+# Spring settings
+spring:
+  application:
+    name: api-order-server
+  cloud:
+    consul:
+      host: 10.0.11.21
+      port: 8500
+      discovery:
+        #register: false
+        instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
+        tags: app=order, version=0.0.3-SNAPSHOT
+        #healthCheckPath: ${management.context-path}/health
+        healthCheckInterval: 15s
+        prefer-ip-address: true
+
+# Feign settings
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+# Hystrix settings
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
