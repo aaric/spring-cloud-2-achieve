@@ -7,7 +7,6 @@ management:
   endpoints:
     web:
       exposure:
-        #include: health,info
         include: "*"
 
 # Logging settings
@@ -45,5 +44,5 @@ spring:
         git:
           uri: https://github.com/aaric/spring-cloud-2-achieve.git
           search-paths: gitconfig
-          #username: yourusername
-          #password: yoursecret
+          #username: yourgitusername
+          #password: yourgitpassword
