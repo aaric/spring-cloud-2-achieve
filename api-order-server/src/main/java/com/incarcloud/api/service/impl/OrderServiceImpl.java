@@ -6,6 +6,7 @@ import com.incarcloud.api.feign.UserServiceFeign;
 import com.incarcloud.api.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 @RestController
 public class OrderServiceImpl implements OrderService {
+
+    /**
+     * 数据来源配置中心
+     */
+    @Value("custom.title")
+    private String customTitle;
 
     /**
      * 计数器
@@ -52,4 +59,9 @@ public class OrderServiceImpl implements OrderService {
 //    private String getUserThreadNameFallback() {
 //        return "Waiting UserServiceFeign$getSleepT15 ...";
 //    }
+
+    @Override
+    public String getCustomTitle() {
+        return customTitle;
+    }
 }

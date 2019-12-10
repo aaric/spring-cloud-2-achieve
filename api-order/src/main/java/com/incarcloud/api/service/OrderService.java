@@ -19,4 +19,7 @@ public interface OrderService {
 
     @GetMapping("/user/getUserThreadName")
     String getUserThreadName();
+
+    @GetMapping("/user/getCustomTitle")
+    String getCustomTitle();
 }

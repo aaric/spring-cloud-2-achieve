@@ -38,6 +38,11 @@ spring:
         tags: app=order, version=0.0.4-SNAPSHOT
         healthCheckInterval: 15s
         prefer-ip-address: true
+    config:
+      profile: dev
+      discovery:
+        enabled: true
+        serviceId: config-server
 
 # Feign settings
 feign:

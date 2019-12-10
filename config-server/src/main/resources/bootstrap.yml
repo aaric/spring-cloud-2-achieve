@@ -39,10 +39,9 @@ spring:
         healthCheckInterval: 15s
         prefer-ip-address: true
     config:
-      label: dev-aaric
+      label: master
       server:
         git:
           uri: https://github.com/aaric/spring-cloud-2-achieve.git
-          search-paths: gitconfig
-          #username: yourgitusername
-          #password: yourgitpassword
+          search-paths:
+            - gitconfig
