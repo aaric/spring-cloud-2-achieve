@@ -32,6 +32,6 @@ public class UserServiceImpl implements UserService {
     @GetMapping("/user/getUser")
     public User getUser(@RequestParam("id") Integer id) {
         log.info("User-{}: id = {}", counter.incrementAndGet(), id);
-        return new User(id, "user-" + id);
+        return new User(id, customName);
     }
 }
