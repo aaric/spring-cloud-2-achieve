@@ -38,3 +38,8 @@ spring:
         tags: app=user, version=0.0.4-SNAPSHOT
         healthCheckInterval: 15s
         prefer-ip-address: true
+    config:
+      profile: prod
+      discovery:
+        enabled: true
+        serviceId: config-server

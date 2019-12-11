@@ -17,12 +17,7 @@ public class UserServiceFallback implements UserServiceFeign {
 
     @Override
     public User getUser(Integer id) {
-        return null;
-    }
-
-    @Override
-    public String getSleepT15() {
         log.info("currentThreadName: {}", Thread.currentThread().getName());
-        return "Waiting UserServiceFeign$getSleepT15 ...";
+        return null;
     }
 }
