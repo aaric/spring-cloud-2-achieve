@@ -49,8 +49,8 @@ spring:
 zuul:
   routes:
     api-user-server:
-      path: /api/user/*
+      path: /api/usergroup/**
       serviceId: api-user-server
     api-order-server:
-      path: /api/order/*
+      path: /api/ordergroup/**
       serviceId: api-order-server

@@ -49,7 +49,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    @GetMapping("/user/getCustomTitle")
+    @GetMapping("/order/getCustomTitle")
     public String getCustomTitle() {
         return customTitle;
     }
