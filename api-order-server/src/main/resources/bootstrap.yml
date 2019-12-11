@@ -35,7 +35,7 @@ spring:
       port: 8500
       discovery:
         instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
-        tags: app=order, version=0.0.4-SNAPSHOT
+        tags: app=order, version=0.0.5-SNAPSHOT
         healthCheckInterval: 15s
         prefer-ip-address: true
     config:
