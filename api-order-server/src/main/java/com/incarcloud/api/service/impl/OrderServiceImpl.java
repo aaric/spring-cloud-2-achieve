@@ -28,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
     /**
      * 数据来源配置中心
      */
-    @Value("custom.title")
+    @Value("${custom.title}")
     private String customTitle;
 
     /**
@@ -49,18 +49,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    @GetMapping("/user/getUserThreadName")
-//    @HystrixCommand(fallbackMethod = "getUserThreadNameFallback")
-    public String getUserThreadName() {
-        log.info("currentThreadName: {}", Thread.currentThread().getName());
-        return userServiceFeign.getSleepT15();
-    }
-
-//    private String getUserThreadNameFallback() {
-//        return "Waiting UserServiceFeign$getSleepT15 ...";
-//    }
-
-    @Override
+    @GetMapping("/user/getCustomTitle")
     public String getCustomTitle() {
         return customTitle;
     }
