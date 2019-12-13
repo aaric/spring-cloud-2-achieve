@@ -18,6 +18,6 @@ public class UserServiceFallback implements UserServiceFeign {
     @Override
     public User getUser(Integer id) {
         log.info("currentThreadName: {}", Thread.currentThread().getName());
-        return null;
+        return new User(0, "Waiting UserService$getUser ...");
     }
 }

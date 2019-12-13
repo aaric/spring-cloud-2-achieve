@@ -1,0 +1,7 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile "org.springframework.cloud:spring-cloud-starter-consul-discovery:${springCloudVersion}"
+    compile "org.springframework.cloud:spring-cloud-config-client:${springCloudVersion}"
+    compile "org.springframework.cloud:spring-cloud-starter-netflix-zuul:${springCloudVersion}"
+}
