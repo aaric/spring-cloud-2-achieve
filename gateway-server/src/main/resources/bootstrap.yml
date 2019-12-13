@@ -46,11 +46,11 @@ spring:
         serviceId: config-server
 
 # Zuul settings
-zuul:
-  routes:
-    api-user-server:
-      path: /api/usergroup/**
-      serviceId: api-user-server
-    api-order-server:
-      path: /api/ordergroup/**
-      serviceId: api-order-server
+#zuul:
+#  routes:
+#    api-user-server:
+#      path: /api/usergroup/**
+#      serviceId: api-user-server
+#    api-order-server:
+#      path: /api/ordergroup/**
+#      serviceId: api-order-server
