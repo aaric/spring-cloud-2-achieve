@@ -1,23 +1,11 @@
-apply plugin: "org.sonarqube"
-
-buildscript {
-    repositories {
-        maven { url 'https://plugins.gradle.org/m2/' }
-        maven { url 'https://maven.aliyun.com/repository/public' }
-    }
-    dependencies {
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7.1"
-    }
-}
-
 allprojects {
-    group 'com.incarcloud'
-    version '0.0.5-SNAPSHOT'
+    group "com.incarcloud"
+    version "0.1.0-SNAPSHOT"
 }
 
 subprojects {
-    apply plugin: 'java'
-    apply plugin: 'checkstyle'
+    apply plugin: "java"
+    apply plugin: "checkstyle"
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
@@ -31,8 +19,8 @@ subprojects {
     }
 
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/public' }
-        maven { url 'https://repository.incarcloud.com/content/groups/public' }
+        maven { url "https://maven.aliyun.com/repository/public" }
+        maven { url "https://repository.incarcloud.com/content/groups/public" }
     }
 
     dependencies {
@@ -44,7 +32,7 @@ subprojects {
 
         testCompile "org.junit.jupiter:junit-jupiter-engine:${junit5Version}"
         testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
-            exclude group: 'junit', module: 'junit'
+            exclude group: "junit", module: "junit"
         }
 
         /*runtime "org.springframework.boot:spring-boot-devtools:${springBootVersion}"*/
@@ -52,8 +40,8 @@ subprojects {
 
     buildscript {
         repositories {
-            maven { url 'https://plugins.gradle.org/m2/' }
-            maven { url 'https://maven.aliyun.com/repository/public' }
+            maven { url "https://plugins.gradle.org/m2/" }
+            maven { url "https://maven.aliyun.com/repository/public" }
         }
 
         dependencies {
@@ -80,17 +68,11 @@ subprojects {
         configFile file("${rootDir}/config/checkstyle/checkstyle.xml")
         ignoreFailures true
         showViolations true
-        source = fileTree('src')
-        include '**/*.java'
-        exclude '**/test/**'
-        exclude '**/build/**'
+        source = fileTree("src")
+        include "**/*.java"
+        exclude "**/test/**"
+        exclude "**/build/**"
         classpath = files()
-    }
-
-    sonarqube {
-        properties {
-            property "sonar.sourceEncoding", "UTF-8"
-        }
     }
 
     defaultTasks "assemble"
