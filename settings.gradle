@@ -1,8 +1,8 @@
-include 'config-server'
-include 'gateway-server'
-include 'api-user'
-include 'api-user-server'
-include 'api-order'
-include 'api-order-server'
+include "config:config-server"
+include "user:user-api"
+include "user:user-api-server"
+include "order:order-api"
+include "order:order-api-server"
+include "gateway-server"
 
-rootProject.name = 'spring-cloud-2-achieve'
+rootProject.name = "spring-cloud-2-achieve"
