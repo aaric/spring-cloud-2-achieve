@@ -7,3 +7,5 @@ build/
 application-*.yml
 .DS_Store
 out/
+*.gz
+lombok.*
