@@ -1,6 +1,6 @@
 allprojects {
     group "com.incarcloud"
-    version "0.1.0-SNAPSHOT"
+    version "0.2.0-SNAPSHOT"
 }
 
 subprojects {
@@ -11,7 +11,7 @@ subprojects {
     targetCompatibility = JavaVersion.VERSION_1_8
 
     ext {
-        lombokVersion = "1.18.8"
+        lombokVersion = "1.18.12"
         springBootVersion = "2.2.+"
         springCloudVersion = "2.2.+"
         swaggerBootstrapUiVersion = "1.9.6"
@@ -31,7 +31,7 @@ subprojects {
         testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
         testCompile "org.junit.jupiter:junit-jupiter-engine:${junit5Version}"
-        testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
+        testCompile ("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
             exclude group: "junit", module: "junit"
         }
 
