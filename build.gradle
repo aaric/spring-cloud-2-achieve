@@ -51,8 +51,8 @@ subprojects {
 
     dependencyManagement {
         imports {
-            mavenBom "org.springframework.boot:spring-boot-dependencies:2.2.6.RELEASE"
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:Greenwich.RELEASE"
+            mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
         }
 
         dependencies {
