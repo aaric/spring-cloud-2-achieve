@@ -1,8 +1,8 @@
-apply plugin: 'org.springframework.boot'
+apply plugin: "org.springframework.boot"
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
-    compile "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
-    compile "org.springframework.cloud:spring-cloud-starter-consul-discovery:${springCloudVersion}"
-    compile "org.springframework.cloud:spring-cloud-config-server:${springCloudVersion}"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.cloud:spring-cloud-starter-consul-discovery"
+    compile "org.springframework.cloud:spring-cloud-config-server"
 }

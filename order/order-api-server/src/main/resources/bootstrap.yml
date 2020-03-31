@@ -22,7 +22,7 @@ logging:
       incarcloud: DEBUG
   file:
     path: ${LOGGING_FILE_PATH:./}
-    name: order.log
+    name: output.log
     max-size: ${LOGGING_FILE_MAX_SIZE:20MB}
 
 # Spring settings
