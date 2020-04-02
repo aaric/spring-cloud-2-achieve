@@ -3,7 +3,7 @@ buildscript {
         lombokVersion = "4.1.6"
         junitPlatformVersion = "1.2.0"
         dependencyManagementVersion = "1.0.9.RELEASE"
-        springBootVersion = "2.1.12.RELEASE"
+        springBootVersion = "2.1.13.RELEASE"
         springCloudVersion = "Greenwich.SR5"
     }
 
@@ -22,7 +22,7 @@ buildscript {
 
 allprojects {
     group "com.incarcloud"
-    version "0.3.1-SNAPSHOT"
+    version "0.3.2-SNAPSHOT"
 
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
@@ -49,8 +49,9 @@ subprojects {
     dependencies {
         compile "org.slf4j:slf4j-api"
 
-        testCompile "org.junit.jupiter:junit-jupiter-engine"
-        testCompile ("org.springframework.boot:spring-boot-starter-test") {
+        testCompile "org.junit.jupiter:junit-jupiter-api"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+        testCompile("org.springframework.boot:spring-boot-starter-test") {
             exclude group: "junit", module: "junit"
             exclude group: "org.junit.vintage", module: "junit-vintage-engine"
         }
@@ -70,7 +71,9 @@ subprojects {
                 entry "slf4j-simple"
             }
 
-            dependency "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+            // 冲突原因：junit5与spring-boot-dependencies版本一起发布
+            /*dependency "org.junit.jupiter:junit-jupiter-api:5.3.2"
+            dependency "org.junit.jupiter:junit-jupiter-engine:5.3.2"*/
         }
     }
 
