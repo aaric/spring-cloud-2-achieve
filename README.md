@@ -8,7 +8,7 @@
 
 > Spring Cloud 2.x Learning.
 
-# Spring框架`boot`与`cloud`非冲突版本号
+# Spring框架非冲突版本号
 
 > `spring boot`与`junit5`版本由`spring-boot-dependencies`提供，才能保证不冲突。  
 > `spring cloud`版本由`spring-boot-dependencies`提供，才能保证不冲突。  
