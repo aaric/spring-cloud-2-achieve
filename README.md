@@ -8,7 +8,7 @@
 
 > Spring Cloud 2.x Learning.
 
-# Spring Conflict Version
+# Spring Compatible Version
 
 > `spring boot` with `junit5` by using `spring-boot-dependencies`, not conflicted.  
 > `spring cloud` with by using `spring-boot-dependencies`, not conflicted.  
