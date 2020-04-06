@@ -40,7 +40,7 @@ public class OrderApiImpl implements OrderApi {
     private UserServiceFeign userServiceFeign;
 
     @Override
-    @GetMapping("/getDetail")
+    @GetMapping("/order/getDetail")
     public List<Order> getDetail(@RequestParam("userId") Integer userId) {
         log.info("currentThreadName: {}", Thread.currentThread().getName());
         log.info("Order-{}: userId = {}", counter.incrementAndGet(), userId);
@@ -49,7 +49,7 @@ public class OrderApiImpl implements OrderApi {
     }
 
     @Override
-    @GetMapping("/getCustomTitle")
+    @GetMapping("/order/getCustomTitle")
     public String getCustomTitle() {
         return customTitle;
     }

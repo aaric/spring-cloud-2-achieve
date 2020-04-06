@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface OrderApi {
 
-    @GetMapping("/getDetail")
+    @GetMapping("/order/getDetail")
     List<Order> getDetail(@RequestParam("userId") Integer userId);
 
-    @GetMapping("/getCustomTitle")
+    @GetMapping("/order/getCustomTitle")
     String getCustomTitle();
 }

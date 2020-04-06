@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 public interface UserApi {
 
-    @GetMapping("/getUser")
+    @GetMapping("/user/getUser")
     User getUser(@RequestParam("id") Integer id);
 }

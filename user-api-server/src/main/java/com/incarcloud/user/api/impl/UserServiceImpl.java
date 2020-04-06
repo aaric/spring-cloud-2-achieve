@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserApi {
     private String customName;
 
     @Override
-    @GetMapping("/getUser")
+    @GetMapping("/user/getUser")
     public User getUser(@RequestParam("id") Integer id) {
         log.info("User-{}: id = {}", counter.incrementAndGet(), id);
         return new User(id, customName);
