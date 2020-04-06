@@ -1,6 +1,6 @@
 # Tomcat settings
 server:
-  port: ${TOMCAT_SERVER_PORT:9080}
+  port: ${TOMCAT_SERVER_PORT:9090}
 
 # Management settings
 management:
