@@ -1,6 +1,6 @@
 # Tomcat settings
 server:
-  port: ${TOMCAT_SERVER_PORT:9090}
+  port: ${TOMCAT_SERVER_PORT:9080}
 
 # Management settings
 management:
@@ -28,7 +28,7 @@ logging:
 # Spring settings
 spring:
   application:
-    name: api-order-server
+    name: api-user-server
   cloud:
     # 注册中心
     consul:
@@ -36,22 +36,12 @@ spring:
       port: 8500
       discovery:
         #instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
-        tags: app=order, version=0.0.5-SNAPSHOT
+        tags: app=user
         healthCheckInterval: 15s
         prefer-ip-address: true
     # 配置中心
     config:
-      profile: dev
+      profile: prod
       discovery:
         enabled: true
         serviceId: config-server
-
-# Feign settings
-feign:
-  hystrix:
-    enabled: true
-  compression:
-    request:
-      enabled: true
-    response:
-      enabled: true

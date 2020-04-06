@@ -35,8 +35,8 @@ spring:
       host: 10.0.11.21
       port: 8500
       discovery:
-        instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
-        tags: app=config, version=0.0.5-SNAPSHOT
+        #instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
+        tags: app=config
         healthCheckInterval: 15s
         prefer-ip-address: true
     # GIT仓库配置
@@ -46,4 +46,4 @@ spring:
           uri: https://github.com/aaric/spring-cloud-2-achieve.git
           default-label: master
           search-paths:
-            - config/configstore
+            - git-store
