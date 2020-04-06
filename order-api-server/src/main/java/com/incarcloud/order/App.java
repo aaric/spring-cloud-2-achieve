@@ -17,7 +17,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableHystrix
 @EnableFeignClients
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+        "com.incarcloud.mvc",
+        "com.incarcloud.order"
+})
 public class App {
 
     /**

@@ -45,7 +45,7 @@ public class OrderApiImpl implements OrderApi {
         log.info("currentThreadName: {}", Thread.currentThread().getName());
         log.info("Order-{}: userId = {}", counter.incrementAndGet(), userId);
         User user = userServiceFeign.getUser(userId);
-        return Arrays.asList(new Order(1, "macpro", user.getName()));
+        return Arrays.asList(new Order(1, "macpro", user.getUsername()));
     }
 
     @Override

@@ -1,3 +1,5 @@
 dependencies {
+    compile project(":common-utils")
+
     compile "org.springframework.boot:spring-boot-starter-web"
 }

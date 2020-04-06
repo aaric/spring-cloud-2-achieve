@@ -3,6 +3,7 @@ apply plugin: "org.springframework.boot"
 dependencies {
     compile project(":user-api")
     compile project(":order-api")
+    compile project(":autoconfig-swagger-api")
 
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.cloud:spring-cloud-starter-consul-discovery"

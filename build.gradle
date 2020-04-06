@@ -22,7 +22,7 @@ buildscript {
 
 allprojects {
     group "com.incarcloud"
-    version "0.4.2-SNAPSHOT"
+    version "0.5.0-SNAPSHOT"
 
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
