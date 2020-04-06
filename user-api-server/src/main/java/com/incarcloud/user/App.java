@@ -13,7 +13,10 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
  */
 @RefreshScope
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+        "com.incarcloud.mvc",
+        "com.incarcloud.user"
+})
 public class App {
 
     /**

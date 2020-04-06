@@ -1,3 +1,12 @@
+# Incarcloud settings
+incarcloud:
+  swagger2:
+    api:
+      title: 订单子系统在线API文档
+      description: 本文档包含该项目全部业务接口，注意保密。(测试项目)
+      service-url: http://localhost:9080/doc.html
+      version: 1.0
+
 # Custom settings
 custom:
   title: order
