@@ -1,6 +1,7 @@
 include "common-utils"
 include "autoconfig-swagger-api"
 include "config-server"
+include "oauth2-server"
 include "user-api"
 include "user-api-server"
 include "order-api"

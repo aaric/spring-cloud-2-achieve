@@ -1,0 +1,16 @@
+apply plugin: "org.springframework.boot"
+
+dependencies {
+    compile "mysql:mysql-connector-java"
+
+    compile "org.flywaydb:flyway-core"
+    compile "org.springframework.boot:spring-boot-starter-web"
+
+    // 注册中心依赖
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.cloud:spring-cloud-starter-consul-discovery"
+
+    // OAuth2安全认证依赖
+    compile "org.springframework.boot:spring-boot-starter-jdbc"
+    compile "org.springframework.cloud:spring-cloud-starter-oauth2"
+}
