@@ -115,5 +115,15 @@ subprojects {
         classpath = files()
     }
 
+    task lombokConfigDelete() {
+        def subProjectPath = project.projectDir
+        if (null != subProjectPath) {
+            def lombokConfigFile = new File(subProjectPath, "lombok.config")
+            if (lombokConfigFile.exists()) {
+                lombokConfigFile.delete()
+            }
+        }
+    }
+
     defaultTasks "assemble"
 }
