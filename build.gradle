@@ -22,7 +22,7 @@ buildscript {
 
 allprojects {
     group "com.incarcloud"
-    version "0.6.0-SNAPSHOT"
+    version "0.7.0-SNAPSHOT"
 
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
@@ -71,9 +71,18 @@ subprojects {
                 entry "slf4j-simple"
             }
 
-            // 冲突原因：junit5与spring-boot-dependencies版本一起发布
+            dependencySet(group: "com.baomidou", version: "3.3.1") {
+                entry "mybatis-plus-core"
+                entry "mybatis-plus-annotation"
+                entry "mybatis-plus-boot-starter"
+            }
+
+            // 解决方法：junit5与spring-boot-dependencies版本一起发布
             /*dependency "org.junit.jupiter:junit-jupiter-api:5.3.2"
             dependency "org.junit.jupiter:junit-jupiter-engine:5.3.2"*/
+
+            // 解决方法：security与spring-boot-dependencies版本一起发布
+            /*dependency "org.springframework.security:spring-security-core:5.1.7.RELEASE"*/
 
             dependency "org.flywaydb:flyway-core:5.2.4"
 
@@ -86,7 +95,10 @@ subprojects {
             dependency "io.springfox:springfox-swagger2:2.8.0"
             dependency "com.github.xiaoymin:swagger-bootstrap-ui:1.9.6"
 
+            dependency "com.zaxxer:HikariCP:3.4.2"
             dependency "mysql:mysql-connector-java:8.0.18"
+
+            dependency "javax.validation:validation-api:2.0.1.Final"
         }
     }
 
@@ -115,7 +127,7 @@ subprojects {
         classpath = files()
     }
 
-    task lombokConfigDelete() {
+    task removeLombokConfig() {
         def subProjectPath = project.projectDir
         if (null != subProjectPath) {
             def lombokConfigFile = new File(subProjectPath, "lombok.config")

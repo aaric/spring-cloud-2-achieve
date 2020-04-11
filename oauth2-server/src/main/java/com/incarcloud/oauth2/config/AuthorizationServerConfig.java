@@ -1,11 +1,8 @@
 package com.incarcloud.oauth2.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -34,6 +31,9 @@ import java.security.KeyPair;
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
+    private DataSource dataSource;
+
+    @Autowired
     private AuthenticationManager authenticationManager;
 
     @Bean
@@ -53,17 +53,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     }
 
     @Bean
-    @Primary
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource() {
-        // 使用HikariCP数据库连接池
-        return DataSourceBuilder.create().build();
-    }
-
-    @Bean
     public ClientDetailsService clientDetails() {
         // 基于JDBC保存客户端信息数据
-        return new JdbcClientDetailsService(dataSource());
+        return new JdbcClientDetailsService(dataSource);
     }
 
     @Override

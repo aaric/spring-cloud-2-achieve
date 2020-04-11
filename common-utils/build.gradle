@@ -3,8 +3,6 @@ dependencies {
     compile "org.apache.commons:commons-lang3"
     compile "com.google.guava:guava"
 
-    /*compile "com.baomidou:mybatis-plus-core"
+    compile "com.baomidou:mybatis-plus-core"
     compile "com.baomidou:mybatis-plus-annotation"
-
-    compile "org.springframework.security:spring-security-core"*/
 }
