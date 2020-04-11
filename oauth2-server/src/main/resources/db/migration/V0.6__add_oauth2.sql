@@ -17,4 +17,4 @@ CREATE TABLE `oauth_client_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='OAuth2客户端详情表';
 
 INSERT INTO `oauth_client_details` (`client_id`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `access_token_validity`, `refresh_token_validity`)
-VALUES ('client', '$2a$10$/FdlWQWV0JNGNF4WU4tJIeMT8QQMrg9jq8jPu7QGkTMypZ6Eb6wVa', 'app', 'authorization_code,password,refresh_token', 'https://www.incarcloud.com', 43200, 2592000);
+VALUES ('client', '$2a$10$mXvf3XeEZxFM3KIOgthuDOVwAjmy5IiNUnPM4sxyzagJ4qUxx/hVO', 'app', 'authorization_code,password,refresh_token', 'https://www.incarcloud.com', 43200, 2592000);

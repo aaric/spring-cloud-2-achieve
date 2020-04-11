@@ -39,7 +39,7 @@ spring:
       port: ${SPRING_CLOUD_CONSUL_PORT:8500}
       discovery:
         #instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
-        tags: app=config
+        tags: app=configserver
         healthCheckInterval: 15s
         prefer-ip-address: true
     # GIT仓库配置
@@ -49,4 +49,4 @@ spring:
           uri: https://github.com/aaric/spring-cloud-2-achieve.git
           default-label: master
           search-paths:
-            - git-store
+            - config-repo

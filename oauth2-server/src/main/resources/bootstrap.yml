@@ -31,7 +31,7 @@ spring:
     active: dev
   application:
     # 应用名称
-    name: reuse-oauth2-server
+    name: oauth2-server
   # MySQL8数据源
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
@@ -54,7 +54,7 @@ spring:
       encoding: UTF-8
       locations: classpath:db/migration
       baseline-on-migrate: true
-      validate-on-migrate: true
+      validate-on-migrate: false
       sql-migration-prefix: V
       sql-migration-separator: __
       sql-migration-suffix: .sql

@@ -1,5 +1,6 @@
 package com.incarcloud.oauth2.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -8,7 +9,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -22,10 +23,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Bean
     @Override
@@ -36,10 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 使用JDBC认证与授权
-        auth.inMemoryAuthentication()
-                .withUser("admin").password(passwordEncoder().encode("123456")).roles("ADMIN")
-                .and()
-                .withUser("user").password(passwordEncoder().encode("123456")).roles("USER");
+        auth.userDetailsService(userDetailsService);
     }
 
     @Override

@@ -1,0 +1,10 @@
+dependencies {
+    compile project(":common-utils")
+
+    compile "com.zaxxer:HikariCP"
+    compile "mysql:mysql-connector-java"
+    compile "com.baomidou:mybatis-plus-boot-starter"
+
+    compile "org.springframework.boot:spring-boot-starter-jdbc"
+    /*compile "org.springframework:spring-web"*/
+}

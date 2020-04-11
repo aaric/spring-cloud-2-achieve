@@ -1,5 +1,6 @@
 include "common-utils"
 include "autoconfig-swagger-api"
+include "autoconfig-mybatis"
 include "config-server"
 include "oauth2-server"
 include "user-api"
