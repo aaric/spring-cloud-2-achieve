@@ -31,7 +31,7 @@ spring:
     active: dev
   application:
     # 应用名称
-    name: api-user-server
+    name: user-api-server
   cloud:
     # 注册中心
     consul:
