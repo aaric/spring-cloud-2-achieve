@@ -12,6 +12,7 @@ import java.util.Collection;
 /**
  * 请求分页数据对象
  *
+ * @param <T> 支持泛型
  * @author Aaric, created on 2020-04-11T18:39.
  * @version 0.7.0-SNAPSHOT
  */
