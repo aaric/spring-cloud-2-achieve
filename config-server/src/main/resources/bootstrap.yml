@@ -39,7 +39,7 @@ spring:
       port: ${SPRING_CLOUD_CONSUL_PORT:8500}
       discovery:
         #instance-id: ${spring.application.name}_${spring.cloud.client.ip-address}_${server.port}
-        tags: app=config-server
+        tags: app=config
         healthCheckInterval: 15s
         prefer-ip-address: true
     # GIT仓库配置
