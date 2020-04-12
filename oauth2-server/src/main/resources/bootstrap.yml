@@ -67,6 +67,12 @@ spring:
         tags: app=oauth2-server
         healthCheckInterval: 15s
         prefer-ip-address: true
+    # 配置中心
+    config:
+      profile: dev
+      discovery:
+        enabled: true
+        serviceId: config-server
     # 负载均衡
     loadbalancer:
       ribbon:

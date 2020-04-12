@@ -1,0 +1,6 @@
+# Spring settings
+spring:
+  datasource:
+    jdbc-url: jdbc:mysql://k8s-master:33068/sc2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
