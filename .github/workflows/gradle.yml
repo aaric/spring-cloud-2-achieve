@@ -13,18 +13,18 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-#      - name: Set up mysql 8.0
-#        uses: mirromutth/mysql-action@v1.1
-#        with:
-#          host port: 3306
-#          container port: 3306
-#          character set server: 'utf8mb4'
-#          collation server: 'utf8mb4_bin'
-#          mysql version: '8.0'
-#          mysql database: 'sc2'
-#          mysql root password: 'root'
-#          mysql user: 'root'
-#          mysql password: 'root'
+      - name: Set up mysql 8.0
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          host port: 3306
+          container port: 3306
+          character set server: 'utf8mb4'
+          collation server: 'utf8mb4_bin'
+          mysql version: '8.0'
+          mysql database: 'sc2'
+          mysql root password: 'root'
+          mysql user: 'root'
+          mysql password: 'root'
       - name: Build with Gradle
         run: |
           mysql --version
