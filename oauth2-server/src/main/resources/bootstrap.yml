@@ -64,7 +64,7 @@ spring:
       host: ${SPRING_CLOUD_CONSUL_HOST:127.0.0.1}
       port: ${SPRING_CLOUD_CONSUL_PORT:8500}
       discovery:
-        tags: app=oauth2
+        tags: app=oauth2-server
         healthCheckInterval: 15s
         prefer-ip-address: true
     # 负载均衡
