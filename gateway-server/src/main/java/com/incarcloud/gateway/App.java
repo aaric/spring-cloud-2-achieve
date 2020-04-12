@@ -11,7 +11,10 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @version 0.4.1-SNAPSHOT
  */
 @EnableZuulProxy
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+        "com.incarcloud.mvc",
+        "com.incarcloud.gateway"
+})
 public class App {
 
     /**
