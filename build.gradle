@@ -22,41 +22,14 @@ buildscript {
 
 allprojects {
     group "com.incarcloud"
-    version "0.8.0-SNAPSHOT"
+    version "0.8.1-SNAPSHOT"
+
+    apply plugin: "java"
+    apply plugin: "io.spring.dependency-management"
 
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://repository.incarcloud.com/content/groups/public" }
-    }
-}
-
-subprojects {
-    apply plugin: "java"
-    apply plugin: "checkstyle"
-    apply plugin: "io.freefair.lombok"
-    apply plugin: "io.spring.dependency-management"
-
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-
-    configurations {
-        developmentOnly
-        runtimeClasspath {
-            extendsFrom developmentOnly
-        }
-    }
-
-    dependencies {
-        compile "org.slf4j:slf4j-api"
-
-        testCompile "org.junit.jupiter:junit-jupiter-api"
-        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
-        testCompile("org.springframework.boot:spring-boot-starter-test") {
-            exclude group: "junit", module: "junit"
-            exclude group: "org.junit.vintage", module: "junit-vintage-engine"
-        }
-
-        developmentOnly "org.springframework.boot:spring-boot-devtools" //支持热部署依赖
     }
 
     dependencyManagement {
@@ -100,6 +73,34 @@ subprojects {
 
             dependency "javax.validation:validation-api:2.0.1.Final"
         }
+    }
+}
+
+subprojects {
+    apply plugin: "checkstyle"
+    apply plugin: "io.freefair.lombok"
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    configurations {
+        developmentOnly
+        runtimeClasspath {
+            extendsFrom developmentOnly
+        }
+    }
+
+    dependencies {
+        compile "org.slf4j:slf4j-api"
+
+        testCompile "org.junit.jupiter:junit-jupiter-api"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+        testCompile("org.springframework.boot:spring-boot-starter-test") {
+            exclude group: "junit", module: "junit"
+            exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+        }
+
+        developmentOnly "org.springframework.boot:spring-boot-devtools" //支持热部署依赖
     }
 
     compileJava {
