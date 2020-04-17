@@ -27,6 +27,9 @@ allprojects {
     apply plugin: "java"
     apply plugin: "io.spring.dependency-management"
 
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://repository.incarcloud.com/content/groups/public" }
@@ -79,9 +82,6 @@ allprojects {
 subprojects {
     apply plugin: "checkstyle"
     apply plugin: "io.freefair.lombok"
-
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
 
     configurations {
         developmentOnly
