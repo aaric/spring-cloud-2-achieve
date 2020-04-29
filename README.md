@@ -21,4 +21,4 @@
 |2|`2.0.+`|`Finchley`|`2.0.2.RELEASE`|||*unknown*|
 |3|`2.1.13.RELEASE`|`Greenwich.SR5`|`2.1.2.RELEASE`|`5.2.4`|`5.3.2`|**tested**|
 |4|`2.2.+`|`Hoxton.RELEASE`|`2.2.0.RELEASE`|||*unknown*|
-|5|`2.2.5.RELEASE`|`Hoxton.SR3`|`2.2.1.RELEASE`|||*tested*|
+|5|`2.2.5.RELEASE`|`Hoxton.SR3`|`2.2.1.RELEASE`|||**tested**|
