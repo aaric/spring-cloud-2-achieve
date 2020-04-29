@@ -13,7 +13,7 @@
 > `spring boot` with `junit5` by using `spring-boot-dependencies`, not conflicted.  
 > `spring cloud` with by using `spring-boot-dependencies`, not conflicted.  
 > `spring cloud` with `Greenwich.SR5` *tested*。  
-> [`Spring Cloud Alibaba Wiki.`](https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E#%E6%AF%95%E4%B8%9A%E7%89%88%E6%9C%AC%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8)
+> [`spring cloud alibaba wiki.`](https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E#%E6%AF%95%E4%B8%9A%E7%89%88%E6%9C%AC%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8)
 
 |No|`Spring Boot`|`Spring Cloud`|`Spring Cloud Alibaba`|`Flyway`|`JUnit5`|*Remark*|
 |:-:|:----------:|:------------:|:--------------------:|:------:|:------:|:------:|
