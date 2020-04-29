@@ -12,11 +12,13 @@
 
 > `spring boot` with `junit5` by using `spring-boot-dependencies`, not conflicted.  
 > `spring cloud` with by using `spring-boot-dependencies`, not conflicted.  
-> `spring cloud` with `Greenwich.SR5` *tested*。
+> `spring cloud` with `Greenwich.SR5` *tested*。  
+> [`Spring Cloud Alibaba Wiki.`](https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E#%E6%AF%95%E4%B8%9A%E7%89%88%E6%9C%AC%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8)
 
-
-|No|`Spring Boot`|`Spring Cloud`|`Flyway`|`JUnit5`|*Remark*|
-|:-:|:----------:|:------------:|:------:|:------:|:--------:|
-|1|`>=2.0.3.RELEASE and <2.0.999.BUILD-SNAPSHOT`|`Finchley.SR4`|||*unknown*|
-|2|`2.1.13.RELEASE`|`Greenwich.SR5`|`5.2.4`|`5.3.2`|**tested**|
-|3|`>=2.2.0.M4 and <2.3.0.BUILD-SNAPSHOT`|`Hoxton.SR3`|||*unknown*|
+|No|`Spring Boot`|`Spring Cloud`|`Spring Cloud Alibaba`|`Flyway`|`JUnit5`|*Remark*|
+|:-:|:----------:|:------------:|:--------------------:|:------:|:------:|:------:|
+|1|`1.5.+`|`Edgware`|`1.5.1.RELEASE`|||*unknown*|
+|2|`2.0.+`|`Finchley`|`2.0.2.RELEASE`|||*unknown*|
+|3|`2.1.13.RELEASE`|`Greenwich.SR5`|`2.1.2.RELEASE`|`5.2.4`|`5.3.2`|**tested**|
+|4|`2.2.+`|`Hoxton.RELEASE`|`2.2.0.RELEASE`|||*unknown*|
+|5|`2.2.5.RELEASE`|`Hoxton.SR3`|`2.2.1.RELEASE`|||*tested*|
