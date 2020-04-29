@@ -22,7 +22,7 @@ buildscript {
 
 allprojects {
     group "com.incarcloud"
-    version "0.8.1-SNAPSHOT"
+    version "0.8.2-SNAPSHOT"
 
     apply plugin: "java"
     apply plugin: "io.spring.dependency-management"
@@ -33,6 +33,16 @@ allprojects {
     repositories {
         maven { url "https://maven.aliyun.com/repository/public" }
         maven { url "https://repository.incarcloud.com/content/groups/public" }
+    }
+
+    configurations {
+        developmentOnly
+        runtimeClasspath {
+            extendsFrom developmentOnly
+        }
+        /*all {
+            exclude group: "org.springframework.boot", module: "spring-boot-starter-logging"
+        }*/
     }
 
     dependencyManagement {
@@ -82,13 +92,6 @@ allprojects {
 subprojects {
     apply plugin: "checkstyle"
     apply plugin: "io.freefair.lombok"
-
-    configurations {
-        developmentOnly
-        runtimeClasspath {
-            extendsFrom developmentOnly
-        }
-    }
 
     dependencies {
         compile "org.slf4j:slf4j-api"

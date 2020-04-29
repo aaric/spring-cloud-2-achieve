@@ -29,6 +29,9 @@ logging:
 spring:
   profiles:
     active: dev
+  main:
+    # 2.1.x
+    allow-bean-definition-overriding: true
   application:
     # 应用名称
     name: gateway-server
