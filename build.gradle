@@ -5,6 +5,9 @@ buildscript {
         dependencyManagementVersion = "1.0.9.RELEASE"
         springBootVersion = "2.1.13.RELEASE"
         springCloudVersion = "Greenwich.SR5"
+
+        repoUsername = "deployment"
+        repoPassword = "AskForAdminIfUpload"
     }
 
     repositories {
@@ -22,7 +25,7 @@ buildscript {
 
 allprojects {
     group "com.incarcloud"
-    version "0.8.2-SNAPSHOT"
+    version "0.8.3-SNAPSHOT"
 
     apply plugin: "java"
     apply plugin: "io.spring.dependency-management"
@@ -91,6 +94,7 @@ allprojects {
 
 subprojects {
     apply plugin: "checkstyle"
+    apply plugin: "maven-publish"
     apply plugin: "io.freefair.lombok"
 
     dependencies {
@@ -116,6 +120,11 @@ subprojects {
         options.compilerArgs << "-Xlint:unchecked"
     }
 
+    task sourceJar(type: Jar) {
+        from sourceSets.main.allJava
+        archiveClassifier = "sources"
+    }
+
     test {
         useJUnitPlatform()
     }
@@ -131,12 +140,62 @@ subprojects {
         classpath = files()
     }
 
+    publishing {
+        // https://docs.gradle.org/current/dsl/org.gradle.api.publish.maven.MavenPublication.html
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+                artifact sourceJar
+                versionMapping {
+                    usage('java-api') {
+                        fromResolutionOf('runtimeClasspath')
+                    }
+                    usage('java-runtime') {
+                        fromResolutionResult()
+                    }
+                }
+            }
+        }
+
+        repositories {
+            if (project.version.contains("-")) {
+                // Snapshots
+                maven {
+                    url "https://repository.incarcloud.com/content/repositories/snapshots/"
+                    credentials {
+                        username repoUsername
+                        password repoPassword
+                    }
+                }
+            } else {
+                // Releases
+                maven {
+                    url "https://repository.incarcloud.com/content/repositories/releases/"
+                    credentials {
+                        username repoUsername
+                        password repoPassword
+                    }
+                }
+            }
+        }
+    }
+
     task removeLombokConfig() {
         def subProjectPath = project.projectDir
         if (null != subProjectPath) {
             def lombokConfigFile = new File(subProjectPath, "lombok.config")
             if (lombokConfigFile.exists()) {
                 lombokConfigFile.delete()
+            }
+        }
+    }
+
+    task removeOutputLog() {
+        def subProjectPath = project.projectDir
+        if (null != subProjectPath) {
+            def logPath = new File(subProjectPath, "output.log")
+            if (logPath.exists()) {
+                logPath.delete()
             }
         }
     }
